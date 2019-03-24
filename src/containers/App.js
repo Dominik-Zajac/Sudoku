@@ -3,7 +3,7 @@ import Board from '../components/Board'
 import { hot } from 'react-hot-loader';
 import sudoku from 'sudoku-umd';
 
-import style from './App.scss';
+import './App.scss';
 
 class App extends React.Component {
 	constructor(props) {
@@ -18,9 +18,9 @@ class App extends React.Component {
 	}
 
 	onChange(e, index) {
-		if(e.target.value > 0 && e.target.value <= 9 && isNaN(e.target.value) === false){
+		if (e.target.value > 0 && e.target.value <= 9 && isNaN(e.target.value) === false) {
 			let playerUpdateBoard = this.state.board.split('').map((value, newValue) => {
-				if(newValue === index){
+				if (newValue === index) {
 					return e.target.value;
 				} else {
 					return value;
@@ -38,7 +38,7 @@ class App extends React.Component {
 
 	check () {
 		const prompt = sudoku.solve(this.state.board);
-		if(prompt) {
+		if (prompt) {
 			this.setState({
 				message: 'Good for you!'
 			});
@@ -64,7 +64,7 @@ class App extends React.Component {
 	solve() {
 		const answer = sudoku.solve(this.state.board);
 		
-		if(answer) {
+		if (answer) {
 			this.setState({
 				board: answer,
 				initialBoard: answer,
@@ -139,23 +139,23 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className={style.container_app}>
-				<h1 className={style.title}>Sudoku</h1>
+			<div className='container_app'>
+				<h1 className='title'>Sudoku</h1>
 				<Board 
 					initialBoard={ this.state.initialBoard } 
 					board={ this.state.board }
 					onChange={ this.onChange.bind(this) }
 				/>
-				<p className={ style.information }>{this.state.message}</p>
-				<div className={ style.buttons_container }>
+				<p className='information'>{this.state.message}</p>
+				<div className='buttons_container'>
 					<button onClick={ this.check.bind(this) }>Check</button>
 					<button onClick={ this.newGame.bind(this) }>New Game</button>
 					<button onClick={ this.solve.bind(this) }>Solve</button>
 					<button onClick={ this.reset.bind(this) }>Reset</button>
 					<button onClick={ this.undo.bind(this) }>Undo</button>
 				</div>
-				<p className={ style.level_info }>Select level: {this.state.difficult}</p>
-				<div className={ style.buttons_difficult }>
+				<p className='level_info'>Select level: {this.state.difficult}</p>
+				<div className='buttons_difficult'>
 						<button onClick={ this.easyLevel.bind(this) }>Easy</button>
 						<button onClick={ this.mediumLevel.bind(this) }>Medium</button>
 						<button onClick={ this.hardLevel.bind(this) }>Hard</button>

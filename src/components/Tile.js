@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './Tile.scss';
+import './Tile.scss';
 
 const Tile = props => 
 	<input
@@ -9,7 +9,7 @@ const Tile = props =>
 		max='9'
 		value={ props.value }
 		onChange={ props.playerOnChange }
-		className={ `${props.readonly ? style.disable : style.write}` }
+		className={ `${ props.readonly ? 'disable' : 'write' }` }
 	/>
 	
 export default Tile;
