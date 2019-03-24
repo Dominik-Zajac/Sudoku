@@ -1,0 +1,38 @@
+input {
+  width: 90%;
+  height: 90%;
+  
+  margin: 3px;
+  padding: 2px;
+  border: none;
+  outline: none;
+  
+  font-size: 32px;
+  text-align: center;
+  color: #FFF;
+  background: inherit;
+
+  appearance:textfield;
+  -moz-appearance:textfield;
+  -webkit-appearance:textfield;
+}
+
+.disable, .write {
+  background: rgba(255, 255, 255, 0.1);  
+}
+
+.disable {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.write {
+  cursor: pointer;
+  
+  &:focus {
+    background: inherit;
+  }
+}
+input:hover > .board {
+  background-color: red;
+}
