@@ -1,7 +1,7 @@
 {
   "name": "sudoku",
   "version": "0.1.0",
-  "homepage": "https://wyrafinowany.github.io/Sudoku3/",
+  "homepage": "https://wyrafinowany.github.io/Sudoku/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
