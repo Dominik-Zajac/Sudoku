@@ -156,11 +156,11 @@ class App extends React.Component {
                 </div>
                 <p className='level_info'>Select level: {this.state.difficult}</p>
                 <div className='buttons_difficult'>
-                        <button onClick={ this.easyLevel.bind(this) }>Easy</button>
-                        <button onClick={ this.mediumLevel.bind(this) }>Medium</button>
-                        <button onClick={ this.hardLevel.bind(this) }>Hard</button>
-                        <button onClick={ this.insaneLevel.bind(this) }>Insane</button>
-                        <button onClick={ this.inhumanLevel.bind(this) }>Inhuman</button>
+                    <button onClick={ this.easyLevel.bind(this) }>Easy</button>
+                    <button onClick={ this.mediumLevel.bind(this) }>Medium</button>
+                    <button onClick={ this.hardLevel.bind(this) }>Hard</button>
+                    <button onClick={ this.insaneLevel.bind(this) }>Insane</button>
+                    <button onClick={ this.inhumanLevel.bind(this) }>Inhuman</button>
                 </div>          
             </div>
         )
