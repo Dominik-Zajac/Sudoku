@@ -8,16 +8,16 @@ const Board = props => {
     const splitInitialBoard = props.initialBoard.split('');
 
     const renderBoard = splitBoard.map((value, index) => {
-        if (splitInitialBoard[index] == '.') {
-            return <Tile playerOnChange={ (e)=>props.onChange(e, index) } key={ index } value={ value } />
+        if (splitInitialBoard[index] === '.') {
+            return <Tile playerOnChange={e => props.onChange(e, index)} key={index} value={value} />
         } else {
-            return <Tile key={ index } value={ value } readonly/>
+            return <Tile key={index} value={value} readonly/>
         }
     })
 
     return(
         <div className='board'>
-            { renderBoard }
+            {renderBoard}
         </div>
     )
 }

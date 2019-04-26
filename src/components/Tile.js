@@ -7,9 +7,9 @@ const Tile = props =>
         type='number'
         min='1'
         max='9'
-        value={ props.value }
-        onChange={ props.playerOnChange }
-        className={ `${ props.readonly ? 'disable' : 'write' }` }
+        value={props.value}
+        onChange={props.playerOnChange}
+        className={`${ props.readonly ? 'disable' : 'write' }`}
     />
     
 export default Tile;

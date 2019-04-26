@@ -1,9 +1,13 @@
 import React from 'react';
-import Board from '../components/Board'
 import { hot } from 'react-hot-loader';
 import sudoku from 'sudoku-umd';
+import Board from '../components/Board'
+import Message from '../components/Message';
+import FunctionButtons from '../components/FunctionButtons';
 
 import './App.scss';
+
+const levels = ['easy', 'medium', 'hard', 'insane', 'inhuman'];
 
 class App extends React.Component {
     constructor(props) {
@@ -13,7 +17,7 @@ class App extends React.Component {
             board: '487591623325786914619243785793168542142975368568432197856314279271859436934627851',
             backBoard: '',
             difficult: 'easy',
-            message: ''
+            message: '',
         }
     }
 
@@ -38,6 +42,7 @@ class App extends React.Component {
 
     check () {
         const prompt = sudoku.solve(this.state.board);
+
         if (prompt) {
             this.setState({
                 message: 'Good for you!'
@@ -75,8 +80,7 @@ class App extends React.Component {
             this.setState({
                 message: 'Error of the solution!'
             })
-        }
-        
+        }        
     };
 
     reset() {
@@ -97,70 +101,48 @@ class App extends React.Component {
         })
     };
 
-    easyLevel() {
-        const easyDifficult = 'easy';
+    selectLevel(index) {
+        const easyDifficult = index;
         
         this.setState({
             difficult: easyDifficult
         })
     };
 
-    mediumLevel() {
-        const mediumDifficult = 'medium';
-        
-        this.setState({
-            difficult: mediumDifficult
-        })
-    };
-
-    hardLevel() {
-        const hardDifficult = 'hard';
-        
-        this.setState({
-            difficult: hardDifficult
-        })
-    };
-
-    insaneLevel() {
-        const insaneDifficult = 'insane';
-        
-        this.setState({
-            difficult: insaneDifficult
-        })
-    };
-
-    inhumanLevel() {
-        const inhumanDifficult = 'inhuman';
-    
-        this.setState({
-            difficult: inhumanDifficult
-        })
-    };
-
     render() {
+        const {selectLevel, onChange, check, newGame, solve, reset, undo} = this;
+        const {initialBoard, board, message, difficult} = this.state;
+
+        const buttons = levels.map((level, index) => (
+            <button
+                key={index}
+                onClick={selectLevel.bind(this, `${level}`)}
+            >
+                {level}
+            </button>
+        ))
+        
         return (
             <div className='container_app'>
                 <h1 className='title'>Sudoku</h1>
                 <Board 
-                    initialBoard={ this.state.initialBoard } 
-                    board={ this.state.board }
-                    onChange={ this.onChange.bind(this) }
+                    initialBoard={initialBoard} 
+                    board={board}
+                    onChange={onChange.bind(this)}
                 />
-                <p className='information'>{this.state.message}</p>
-                <div className='buttons_container'>
-                    <button onClick={ this.check.bind(this) }>Check</button>
-                    <button onClick={ this.newGame.bind(this) }>New Game</button>
-                    <button onClick={ this.solve.bind(this) }>Solve</button>
-                    <button onClick={ this.reset.bind(this) }>Reset</button>
-                    <button onClick={ this.undo.bind(this) }>Undo</button>
-                </div>
-                <p className='level_info'>Select level: {this.state.difficult}</p>
+                <Message 
+                    message={message} 
+                />
+                <FunctionButtons
+                    check={check.bind(this)}
+                    newGame={newGame.bind(this)}
+                    solve={solve.bind(this)}
+                    reset={reset.bind(this)}
+                    undo={undo.bind(this)}
+                />
+                <p className='level_info'>Select level: {difficult}</p>
                 <div className='buttons_difficult'>
-                    <button onClick={ this.easyLevel.bind(this) }>Easy</button>
-                    <button onClick={ this.mediumLevel.bind(this) }>Medium</button>
-                    <button onClick={ this.hardLevel.bind(this) }>Hard</button>
-                    <button onClick={ this.insaneLevel.bind(this) }>Insane</button>
-                    <button onClick={ this.inhumanLevel.bind(this) }>Inhuman</button>
+                   {buttons}
                 </div>          
             </div>
         )
