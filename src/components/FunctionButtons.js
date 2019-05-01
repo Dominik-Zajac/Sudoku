@@ -10,12 +10,12 @@ const FunctionButtons = props => {
     } = props;
 
     return (
-        <div className='buttons_container'>
-            <button onClick={check}>Check</button>
-            <button onClick={newGame}>New Game</button>
-            <button onClick={solve}>Solve</button>
-            <button onClick={reset}>Reset</button>
-            <button onClick={undo}>Undo</button>
+        <div className='buttons_container row'>
+            <button className='col-5 col-md-1' onClick={check}>Check</button>
+            <button className='col-5 col-md-1' onClick={newGame}>New Game</button>
+            <button className='col-5 col-md-1' onClick={solve}>Solve</button>
+            <button className='col-5 col-md-1' onClick={reset}>Reset</button>
+            <button className='col-5 col-md-1' onClick={undo}>Undo</button>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import Board from '../components/Board'
 import Message from '../components/Message';
 import FunctionButtons from '../components/FunctionButtons';
 
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import './App.scss';
 
 const levels = ['easy', 'medium', 'hard', 'insane', 'inhuman'];
@@ -116,6 +117,7 @@ class App extends React.Component {
         const buttons = levels.map((level, index) => (
             <button
                 key={index}
+                className='col-5 col-md-1'
                 onClick={selectLevel.bind(this, `${level}`)}
             >
                 {level}
@@ -141,7 +143,7 @@ class App extends React.Component {
                     undo={undo.bind(this)}
                 />
                 <p className='level_info'>Select level: {difficult}</p>
-                <div className='buttons_difficult'>
+                <div className='buttons_difficult row'>
                    {buttons}
                 </div>          
             </div>

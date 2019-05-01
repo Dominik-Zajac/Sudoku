@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": "https://wyrafinowany.github.io/Sudoku/",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.5",

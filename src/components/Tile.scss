@@ -38,3 +38,13 @@ input[type=number]::-webkit-outer-spin-button {
         background: inherit;
     }
 }
+
+@media (max-width: 992px) {
+    input {
+        width: 85%;
+        height: 85%;
+        margin: 1px;
+        padding: 1px;
+        font-size: 22px;
+    }
+}

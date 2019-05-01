@@ -1,0 +1,49 @@
+input {
+  width: 90%;
+  height: 90%;
+  margin: 3px;
+  padding: 2px;
+  border: none;
+  outline: none;
+  font-size: 32px;
+  text-align: center;
+  color: #FFF;
+  background: inherit;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.disable, .write {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.disable {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.write {
+  cursor: pointer;
+}
+
+.write:focus {
+  background: inherit;
+}
+
+@media (max-width: 992px) {
+  input {
+    width: 85%;
+    height: 85%;
+    margin: 1px;
+    padding: 1px;
+    font-size: 22px;
+  }
+}
+/*# sourceMappingURL=Tile.css.map */
